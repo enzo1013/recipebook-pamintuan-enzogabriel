@@ -2,14 +2,13 @@
 
 {% load static %}
 
-{% block title %}{{ name }}{% endblock %}
+{% block title %}{{ recipe.name }}{% endblock %}
 {% block content %}
     <h4>{{ name }}</h4>
     <ul>
-        {% for ingredient in ingredients %}
+        {% for ingredient in recipe.name.ingredients.all %}
         <li>
-            {{ ingredient.name }}
-            - {{ ingredient.quantity }}
+            {{ ingredient.ingredient.name }}
         </li>
         {% endfor %}
     </ul>
