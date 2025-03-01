@@ -21,12 +21,7 @@ class Recipe(models.Model):
         return self.name
     
 class RecipeIngredient(models.Model):
-    quantity = models.ForeignKey(
-                            Ingredient,
-                            on_delete = models.SET_NULL,
-                            null = True,
-                            related_name = 'quantity'
-                            )
+    quantity = models.CharField(max_length=25)
     
     ingredient = models.ForeignKey(
                                 Ingredient,
