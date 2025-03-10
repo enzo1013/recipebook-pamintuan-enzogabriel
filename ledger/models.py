@@ -14,6 +14,9 @@ class Ingredient(models.Model):
     
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
+    author = models.CharField(max_length=50)
+    created_on = models.DateTimeField(auto_now_add=True)
+    modified_on = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):
         return reverse('ledger:detail', args=[self.pk])
@@ -37,9 +40,7 @@ class RecipeIngredient(models.Model):
                             related_name='ingredients'
                             )
     
-    def __str__(self):
-        return self.name
-    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(blank=True)
+    name = models.CharField(max_length=50)
+    bio = models.TextField(blank=True, max_length=255)
