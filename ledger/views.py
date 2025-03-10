@@ -7,10 +7,12 @@ from .models import Recipe
 # Create your views here.
 class RecipeListView(ListView):
     model = Recipe
+    page_title = 'Recipe List'
     template_name = 'list.html'
 
 class RecipeDetailView(DetailView):
     model = Recipe
+    page_title = 'Recipe <int:pk>'
     template_name = 'detail.html'
 
 def index(request):

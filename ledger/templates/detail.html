@@ -4,7 +4,9 @@
 
 {% block title %}{{ recipe.name }}{% endblock %}
 {% block content %}
-    <h4>{{ recipe.name }}</h4>
+<h4>You are currently looking at {{ recipe.name }}</h4>
+<break></break>
+    <h2>{{ recipe.name }}</h2>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
         <li>
