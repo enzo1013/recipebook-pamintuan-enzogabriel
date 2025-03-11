@@ -5,7 +5,9 @@
         <title>{% block title %}Title{% endblock %}</title>
     </head>
     <body>
-        <h2>Recipe Book</h2>
+        <h1>Recipe Book</h1>
+        
+        <h4>You are currently viewing {% block page_heading %}{% endblock %}</h4>
         
         {% block content %}
 

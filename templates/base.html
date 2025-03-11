@@ -5,8 +5,7 @@
         <title>{% block title %}Title{% endblock %}</title>
     </head>
     <body>
-        <h2>Recipe Book</h2>
-        
+        <h1>Recipe Book</h1>
         {% if request.user.is_authenticated %}
             <h3>Welcome, {{ request.user.username }}.</h3>
             <form method="POST" action="{% url 'logout' %}">
@@ -16,7 +15,8 @@
         {% else %}
             <a href="{% url 'login'%}">Login</a>
         {% endif %}
-    
+        <h4>You are currently viewing {% block page_heading %}{% endblock %}</h4>
+
         {% block content %}
 
         {% endblock %}

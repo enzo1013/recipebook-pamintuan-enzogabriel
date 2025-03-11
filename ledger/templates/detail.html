@@ -2,19 +2,20 @@
 
 {% load static %}
 
-{% block title %}{{ recipe.name }}{% endblock %}
+{% block title %}{{ recipe.name }} | Recipe Book{% endblock %}
+
+{% block page_heading %}Recipe Details of...{% endblock %}
+
 {% block content %}
-<h4>You are currently looking at {{ recipe.name }}</h4>
-<break></break>
     <h2>{{ recipe.name }}</h2>
 
     {% if request.user.is_authenticated %}
-        {{ recipe.author }}
+        <p>Recipe by {{ recipe.author }}</p>
     {% else %}
         <p><i>Log in to view the author of this recipe.</i></p>
     {% endif %}
 
-    Created last {{ recipe.created_on }}
+    Created last {{ recipe.created_on }} |
     Modified last {{ recipe.modified_on }}
     <ul>
         {% for ingredient in recipe.ingredients.all %}

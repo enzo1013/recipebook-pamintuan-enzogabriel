@@ -2,9 +2,11 @@
 
 {% load static %}
 
-{% block title %}Recipe List{% endblock %}
+{% block title %}Recipe List | Recipe Book{% endblock %}
+
+{% block page_heading %}Recipe List{% endblock %}
+
 {% block content %}
-<h4>You are currently looking at Recipe List</h4>
     <ul>
         {% for recipe in object_list %}
         <li>
