@@ -24,14 +24,24 @@ class RecipeIngredient(models.Model):
     quantity = models.CharField(max_length=25)
     
     ingredient = models.ForeignKey(
-                                Ingredient,
-                                on_delete=models.SET_NULL,
-                                null=True,
-                                related_name='recipe'
-                                )
+        Ingredient,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='recipe'
+    )
     recipe = models.ForeignKey(
-                            Recipe,
-                            on_delete=models.SET_NULL,
-                            null=True,
-                            related_name='ingredients'
-                            )
+        Recipe,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='ingredients'
+    )
+    
+class RecipeImage(models.Model):
+    image = models.ImageField(null=False, upload_true='images/')
+    description = models.TextField(max_length=255)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='recipe_image'
+    )
