@@ -7,6 +7,10 @@
 {% block page_heading %}Recipe List{% endblock %}
 
 {% block content %}
+    {% if request.user.is_authenticated %}
+        <a href="/recipe/add">Add a recipe...</a>
+    {% endif %}
+
     <ul>
         {% for recipe in object_list %}
         <li>

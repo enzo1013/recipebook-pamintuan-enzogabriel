@@ -8,15 +8,21 @@
 
 {% block content %}
     <h2>{{ recipe.name }}</h2>
-
+    
     {% if request.user.is_authenticated %}
         <p>Recipe by {{ recipe.author }}</p>
+        <p><a href="{{ recipe.get_absolute_url }}/add_image">Add an image...</a></p>
     {% else %}
         <p><i>Log in to view the author of this recipe.</i></p>
     {% endif %}
 
     Created last {{ recipe.created_on }} |
     Modified last {{ recipe.modified_on }}
+
+    {% if recipe.recipe_image %}
+        <img src="{{ recipe.image.image.url }}">
+    {% endif %}
+
     <ul>
         {% for ingredient in recipe.ingredients.all %}
         <li>
