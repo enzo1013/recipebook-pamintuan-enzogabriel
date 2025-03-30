@@ -19,8 +19,12 @@
     Created last {{ recipe.created_on }} |
     Modified last {{ recipe.modified_on }}
 
-    {% if recipe.recipe_image %}
-        <img src="{{ recipe.image.image.url }}">
+    {% if recipe.image.all %}
+        {% for image in recipe.image.all %}
+            <img src="{{ image.image.url }}" alt="{{ image.description }}">
+        {% endfor %}
+    {% else %}
+        <p>No images linked, must be a bug.</p>
     {% endif %}
 
     <ul>

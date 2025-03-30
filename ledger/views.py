@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Recipe
@@ -42,6 +43,9 @@ class RecipeImageCreateView(CreateView):
     model = Recipe
     form_class = RecipeImageForm
     template_name = 'create.html'
+
+    def get_success_url(self):
+        return reverse_lazy('ledger:detail', kwargs={"pk" : self.kwargs["pk"]})
 
 class RecipeUpdateView(UpdateView):
     model = Recipe

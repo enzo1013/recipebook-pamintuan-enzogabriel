@@ -7,7 +7,7 @@
 {% block page_heading %}Recipe Creation/Image Adder{% endblock %}
 
 {% block content %}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit">
